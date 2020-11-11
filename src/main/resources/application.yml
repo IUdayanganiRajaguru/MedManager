@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/med_manager
+    username: root
+    password: 1998#Shavind
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+debug: true
