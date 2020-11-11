@@ -14,6 +14,9 @@ public class Staff_member implements Serializable {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "username")
+    private String username;
+
     @Column(name = "password")
     private String password;
 
@@ -32,9 +35,10 @@ public class Staff_member implements Serializable {
     public Staff_member() {
     }
 
-    public Staff_member(String role, String password, String firstName, String lastName, String gender, int age) {
+    public Staff_member(String role, String username, String password, String firstName, String lastName, String gender, int age) {
         super();
         this.role = role;
+        this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -60,6 +64,16 @@ public class Staff_member implements Serializable {
     public void setRole(String role) {
 
         this.role = role;
+    }
+
+    public String getUsername() {
+
+        return username;
+    }
+
+    public void setUsername(String username) {
+
+        this.username = username;
     }
 
     public String getPassword() {
