@@ -1,18 +1,20 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from  'react-bootstrap';
 import { Link } from "react-router-dom";
+import {faLaptopMedical} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class NavigationBar extends React.Component{
     render(){
         return (
             <div>
                 <Navbar bg="dark" variant="dark">
-                    <Link to={""} className="navbar-brand">
-                        MedManager
+                    <Link to={""} className="navbar-brand"><FontAwesomeIcon icon={faLaptopMedical} />
+                        {" "}MedManager
                     </Link>
                     <Nav className="mr-auto">
-                        <Link to={"staffList"} className="nav-link">Patients</Link>
-                        <Link to={"addStaff"} className="nav-link">Staff Members</Link>
+                        <Link to={""} className="nav-link">Patients</Link>
+                        <Link to={"staff"} className="nav-link">Staff Members</Link>
                         <Link to={""} className="nav-link">Appointments</Link>
                         <NavDropdown title="Reports" id="basic-nav-dropdown">
                             <NavDropdown.Item to={""}>Medical Certificates</NavDropdown.Item>
