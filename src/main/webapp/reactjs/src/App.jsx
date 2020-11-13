@@ -13,7 +13,7 @@ import Staff from "./components/Staff";
 function App() {
 
   const marginTop = {
-    marginTop:"20px"
+    marginTop:"80px"
   };
 
   return (

@@ -2,16 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -24,15 +14,46 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+:root{
+  --primary-color:#81c416;
+  --light-gray:#2b3032a1;
+  --border:#2b303218;
+  --text-color:#100b5a;
+  --text-white:white;
+  --logo-color:#259c2b;
+
+  --xxx:#93bd03;
+  --yyy:#3f2803;
+
+  --roboto:"Roboto",sans-serief;
+  --gugi:"Gugi",cursive;
+  --ubuntu:"Ubuntu",sans-serief;
+  --merriweather:"Merriweather",serif;
+  --baloo2:"Baloo 2",cursive;
+  --notoSans: "Noto Sans", sans-serif;
+  --dancingScript: "Dancing Script", cursive;
+  --lora: "Lora", serif;
+  --pacifico: "Pacifico", cursive;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.logo-color{
+  color: var(--logo-color);
 }
+.primary-color{
+  color: var(--primary-color);
+}
+
+.bg-primary-color{
+  background-color: var(--primary-color)!important;
+}
+
+.text-color{
+  color:var(--text-color);
+}
+
+.lightgreen{
+  color:lightgreen;
+}
+
+

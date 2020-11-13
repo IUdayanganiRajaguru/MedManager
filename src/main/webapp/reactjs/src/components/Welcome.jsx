@@ -6,7 +6,7 @@ class Welcome extends React.Component{
     render() {
         return (
             <div>
-                <Jumbotron className="bg-dark text-white">
+                <Jumbotron className="bg-light text-dark">
                     <h1>Welcome To MedManager</h1>
                     <p>
                         Any Text Here

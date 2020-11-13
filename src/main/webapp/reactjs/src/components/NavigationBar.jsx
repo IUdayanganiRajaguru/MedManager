@@ -8,11 +8,11 @@ class NavigationBar extends React.Component{
     render(){
         return (
             <div>
-                <Navbar bg="dark" variant="dark">
-                    <Link to={""} className="navbar-brand"><FontAwesomeIcon icon={faLaptopMedical} />
+                <Navbar bg="light" fixed="top">
+                    <Link to={""} style={{color:'green', fontWeight: 'bold', fontSize:'24px'}} className="navbar-brand"><FontAwesomeIcon icon={faLaptopMedical} />
                         {" "}MedManager
                     </Link>
-                    <Nav className="mr-auto">
+                    <Nav className="mr-auto" style={{color:'green', fontWeight: 'bold', fontSize:'20px'}}>
                         <Link to={""} className="nav-link">Patients</Link>
                         <Link to={"staff"} className="nav-link">Staff Members</Link>
                         <Link to={""} className="nav-link">Appointments</Link>
