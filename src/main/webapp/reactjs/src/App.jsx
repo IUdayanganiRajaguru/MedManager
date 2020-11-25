@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import Welcome from './components/Welcome';
 
 import Student from './components/students/Student';
-import StaffMember from './components/staff/StaffMember';
+import User from './components/users/User';
 import Appointment from './components/appointments/Appointment';
 import Reports from './components/reports/Reports';
 import Notifications from './components/Notifications';
@@ -31,7 +31,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Welcome} />
             <Route path="/Student" exact component={Student} />
-            <Route path="/StaffMember" exact component={StaffMember} />
+            <Route path="/User" exact component={User} />
             <Route path="/Appointment" exact component={Appointment} />
             <Route path="/Reports" exact component={Reports} />
             <Route path="/Notifications" exact component={Notifications} />

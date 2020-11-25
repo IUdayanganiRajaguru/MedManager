@@ -141,7 +141,7 @@ function HeaderBar(){
         </Link>
       </MenuItem>
       <MenuItem>
-        <Link to={"/StaffMember"} className={classes.LinkMobile}>            {/*-------------Change these Links------------ */}
+        <Link to={"/User"} className={classes.LinkMobile}>            {/*-------------Change these Links------------ */}
           <p style={{color: '#606264', fontWeight: 'bold'}}>Staff Members</p>
         </Link>
       </MenuItem><MenuItem>
@@ -285,7 +285,7 @@ function HeaderBar(){
                   <Link to={"/Student"} className={classes.LinkDesktop}>    {/*-------------Change these Links------------ */}
                     Patients
                   </Link>
-                  <Link to={"/StaffMember"} className={classes.LinkDesktop}>    {/*-------------Change these Links------------ */}
+                  <Link to={"/User"} className={classes.LinkDesktop}>    {/*-------------Change these Links------------ */}
                     Staff Members
                   </Link>
                   <Link to={"/Appointment"} className={classes.LinkDesktop}>     {/*-------------Change these Links------------ */}

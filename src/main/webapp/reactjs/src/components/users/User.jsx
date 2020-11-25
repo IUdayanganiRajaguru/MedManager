@@ -1,6 +1,6 @@
 import React from 'react'
 
-function StaffMember() {
+function User() {
     return (
         <div>
             <h1>This is StaffMember</h1>
@@ -8,4 +8,4 @@ function StaffMember() {
     )
 }
 
-export default StaffMember;
+export default User;
