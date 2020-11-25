@@ -1,20 +1,36 @@
-import React from "react";
+import { Paper, Typography } from '@material-ui/core';
+import React from 'react'
 
-import { Jumbotron } from "react-bootstrap";
+import { makeStyles } from "@material-ui/core/styles";
 
-class Welcome extends React.Component{
-    render() {
-        return (
-            <div>
-                <Jumbotron className="bg-light text-dark">
-                    <h1>Welcome To MedManager</h1>
-                    <p>
-                        Any Text Here
-                    </p>
-                </Jumbotron>
-            </div>
-        );
-    }
+const useStyles = makeStyles((theme) => ({
+    root: {
+        padding: '50px',
+        marginTop: '25px',
+        marginLeft: '70px',
+        marginRight: '70px',
+        alignItems: 'center',
+    },
+    typography: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+}));
+
+function Welcome() {
+
+    const classes = useStyles();
+
+    return (
+        <Paper className={classes.root}>
+            <Typography className={classes.typography}>
+                <h1>Welcome to MedManager</h1>
+            </Typography>
+            <Typography className={classes.typography} style={{color: '#606264'}}>
+                <p>Medical Center, University of Ruhuna.</p>
+            </Typography>
+        </Paper>
+    )
 }
 
-export default  Welcome;
+export default Welcome;

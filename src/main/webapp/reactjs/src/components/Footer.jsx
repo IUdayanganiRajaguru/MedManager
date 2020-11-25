@@ -1,22 +1,38 @@
-import React from "react";
-import {Col, Container, Navbar} from "react-bootstrap";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { AppBar, CssBaseline, Toolbar, Typography } from '@material-ui/core';
 
-class Footer extends React.Component{
-    render(){
-        let fullYear = new Date().getFullYear();
+const useStyles = makeStyles((theme) => ({
 
-        return(
-            <div>
-                <Navbar fixed="bottom" bg="light" variant="light">
-                    <Container>
-                        <Col lg={12} className="text-center text-muted">
-                            <div style={{color:'green', fontSize:'18px'}}>{fullYear}, All Rights Reserved</div>
-                        </Col>
-                    </Container>
-                </Navbar>
-            </div>
-        );
-    }
+  
+  appBar: {
+    top: 'auto',
+    bottom: 0,
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  typography: {
+    // color: '#606264',
+    color: 'red',
+    alignItems: 'center',
+    fontSize: '18px',
+    // fontWeight: 'bold',
+  },
+}));
+
+export default function BottomAppBar() {
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+        <AppBar position="fixed"  className={classes.appBar}>
+          <Toolbar variant="dense">
+            <Typography className={classes.typography}>
+                All Rights Reserved
+            </Typography>
+          </Toolbar>
+        </AppBar>
+    </React.Fragment>
+  );
 }
-
-export default Footer;
