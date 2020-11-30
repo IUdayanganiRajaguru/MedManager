@@ -1,11 +1,19 @@
 import React from 'react'
+import { BrowserRouter as Router } from "react-router-dom";
+
+import AddUser from './AddUser';
+import ListUser from './ListUser';
 
 function User() {
     return (
-        <div>
-            <h1>This is StaffMember</h1>
-        </div>
+        <Router>
+            <AddUser />
+            <ListUser />
+        </Router>
     )
 }
 
 export default User;
+
+
+

@@ -1,4 +1,5 @@
-import { React, useEffect,useState } from 'react';
+import React from "react";
+import { useCallback, useEffect, useState} from 'react';
 
 import axios from 'axios';
 
@@ -23,15 +24,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import StudentService from "./StudentService";
 
-function createData(id, firstName, lastName, age, faculty, gender, email, address, contactNumber, stayingPlace, height, weight, chronicDisease, allergies) {
-    return {id, firstName, lastName, age, faculty, gender, email, address, contactNumber, stayingPlace, height, weight, chronicDisease, allergies };
-}
-
-const rows = [          //you need to get data to here from database
-    createData(1,'ishara','udayangani',24,'science','female','123@gmail.com','flower rd,matara','0777777777','hostal',150,40,'none','none'),
-     createData(2,'Isuri','udayangani',24,'science','female','123@gmail.com','flower rd,matara','0777777777','hostal',150,40,'none','none'),
-];
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -133,7 +127,7 @@ EnhancedTableHead.propTypes = {
 const useToolbarStyles = makeStyles((theme) => ({
     root: {
         paddingLeft: theme.spacing(3),
-        paddingRight: theme.spacing(1),
+        paddingRight: theme.spacing(3),
     },
     highlight:
         theme.palette.type === 'light'
@@ -166,7 +160,7 @@ const EnhancedTableToolbar = (props) => {
                 </Typography>
             ) : (
                 <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-                    Add Patient
+                    Patient List
                 </Typography>
             )}
 
@@ -193,9 +187,10 @@ EnhancedTableToolbar.propTypes = {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: '25px',
-        marginLeft: '70px',
-        marginRight: '70px',
+        marginTop: '90px',
+        // marginLeft: '280px',
+        // marginRight: '0px',
+        marginBottom: '50px',
     },
     paper: {
         width: '100%',
@@ -227,7 +222,7 @@ const useStyles = makeStyles((theme) => ({
 function ListStudents() {
     const classes = useStyles();
     const [order, setOrder] = useState('asc');
-    const [orderBy, setOrderBy] = useState('firstName');
+    const [orderBy, setOrderBy] = useState('id');
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
     const [dense, setDense] = useState(false);
@@ -238,19 +233,46 @@ function ListStudents() {
 
     const [records, setRecords] = useState([]);
 
-    // useEffect(() => {
-    //     getStudent();
-    // },
+    useEffect(() => {
+        getStudent();
+    });
 
-    // const getStudent= () => {
-    //     axios
-    //         .get("http://localhost:8080/api/v1/Student")[]);
-    //         .then(data => {
-    //             setRecords(data.data);
-    //         }).catch(err => alert(err));
-    // }
+    const getStudent= useCallback(() => {
+            StudentService.getStudents(records)
+            .then(data => {
+                setRecords(data.data);
+            }).catch(err => alert(err));
+    },[records]);
+
+
+    useEffect(() => {
+       deleteStudent();
+    });
+
+    const deleteStudent = useCallback(() => {
+        StudentService.deleteStudent(records)
+            .then(data => {
+                setRecords(data.data);
+            }).catch(err => alert(err));
+    },[records]);
 
     //--------------------------My Codes----------------------------------------
+
+   //  const [records, setRecords] = useState([]);
+   //
+   //  useEffect(() => {
+   //           getStudent();
+   //       },[]);
+   //
+   //  const getStudent= useCallback(()=>{
+   //      axios
+   //      .get("http://localhost:8080/api/v1/Student")
+   //      .then(data =>
+   //         setRecords(data.data));
+   //
+   //  },[]
+   // );
+     
 
 
 
@@ -262,7 +284,7 @@ function ListStudents() {
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
-            const newSelecteds = rows.map((n) => n.id);
+            const newSelecteds = records.map((n) => n.id);
             setSelected(newSelecteds);
             return;
         }
@@ -304,7 +326,7 @@ function ListStudents() {
 
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, records.length - page * rowsPerPage);
 
         return (
         <div className={classes.root}>
@@ -324,10 +346,10 @@ function ListStudents() {
                             orderBy={orderBy}
                             onSelectAllClick={handleSelectAllClick}
                             onRequestSort={handleRequestSort}
-                            rowCount={rows.length}
+                            rowCount={records.length}
                         />
                         <TableBody>
-                            {stableSort(rows, getComparator(order, orderBy))
+                            {stableSort(records, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
                                     const isItemSelected = isSelected(row.id);
@@ -377,7 +399,7 @@ function ListStudents() {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={rows.length}
+                    count={records.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onChangePage={handleChangePage}

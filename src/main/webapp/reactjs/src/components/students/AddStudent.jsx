@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import StudentService from './StudentService';
 
 import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from '@material-ui/core';
-import { InputLabel, MenuItem, Select, Button } from '@material-ui/core';
+import { InputLabel, MenuItem, Select, Button, Paper } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
@@ -19,6 +19,8 @@ const theme = createMuiTheme({
     },
   });
 
+  
+
 
 const initialFieldValues = {
     id: 0,
@@ -26,7 +28,7 @@ const initialFieldValues = {
     lastName: '', 
     age: '',  
     faculty: '', 
-    gender: 'male', 
+    gender: 'Male', 
     email: '', 
     address: '',
     contactNumber: '', 
@@ -74,12 +76,16 @@ function AddStudent(props) {
 
 
     return (
+        <Paper style={{marginTop: '90px'}}>
+            
         <ThemeProvider theme={theme}>
             {/*<form onSubmit={e =>{*/}
             {/*    e.preventDefault();*/}
             {/*    submit(e);*/}
             {/*}}>*/}
-            <form>
+            <form style={{padding:'20px'}}>
+            <label style={{fontSize:'20px', fontWeight:'bold', padding:'20px'}}>Add Patient</label>
+                <br/><br/>
                 <Grid container>
                     <Grid item xs={6}>
                         <TextField
@@ -156,9 +162,9 @@ function AddStudent(props) {
                                 value={values.gender}
                                 onChange={handleInputChange}
                             >
-                                <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                <FormControlLabel value="female" control={<Radio />} label="Female" />
-                                <FormControlLabel value="other" control={<Radio />} label="Other" />
+                                <FormControlLabel value="Male" control={<Radio />} label="Male" />
+                                <FormControlLabel value="Female" control={<Radio />} label="Female" />
+                                <FormControlLabel value="Other" control={<Radio />} label="Other" />
                             </RadioGroup>
                         </FormControl>
 
@@ -171,10 +177,10 @@ function AddStudent(props) {
                                 value={values.faculty}
                                 onChange={handleInputChange}
                             >
-                                <MenuItem value="sc">Faculty of Science</MenuItem>
-                                <MenuItem value="hss">Faculty of Humanities and Social Science</MenuItem>
-                                <MenuItem value="fmst">Faculty of Fisheries and Marine Science Technology</MenuItem>
-                                <MenuItem value="fmf">Faculty of Management and Finance</MenuItem>
+                                <MenuItem value="Science">Faculty of Science</MenuItem>
+                                <MenuItem value="Humanities and Social Science">Faculty of Humanities and Social Science</MenuItem>
+                                <MenuItem value="Fisheries and Marine Science Technology">Faculty of Fisheries and Marine Science Technology</MenuItem>
+                                <MenuItem value="Management and Finance">Faculty of Management and Finance</MenuItem>
                             </Select>
                         </FormControl>
 
@@ -187,16 +193,16 @@ function AddStudent(props) {
                                 value={values.stayingPlace}
                                 onChange={handleInputChange}
                             >
-                                <MenuItem value="BP">Boarding Place</MenuItem>
-                                <MenuItem value="EGN">Eliyakanda Girls New</MenuItem>
-                                <MenuItem value="EGO">Eliyakanda Girls Old</MenuItem>
-                                <MenuItem value="EB">Eliyakanda Boys</MenuItem>
-                                <MenuItem value="M">Meddawatta</MenuItem>
-                                <MenuItem value="PG">Pamburana Girls</MenuItem>
-                                <MenuItem value="Pb">Pamburana Boys</MenuItem>
-                                <MenuItem value="W1">Wellamadama One</MenuItem>
-                                <MenuItem value="W2">Wellamadama Two</MenuItem>
-                                <MenuItem value="W3">Wellamadama Three</MenuItem>
+                                <MenuItem value="Boarding Place">Boarding Place</MenuItem>
+                                <MenuItem value="Eliyakanda Girls New">Eliyakanda Girls New</MenuItem>
+                                <MenuItem value="Eliyakanda Girls Old">Eliyakanda Girls Old</MenuItem>
+                                <MenuItem value="Eliyakanda Boys">Eliyakanda Boys</MenuItem>
+                                <MenuItem value="Meddawatta">Meddawatta</MenuItem>
+                                <MenuItem value="Pamburana Girls">Pamburana Girls</MenuItem>
+                                <MenuItem value="Pamburana Boys">Pamburana Boys</MenuItem>
+                                <MenuItem value="Wellamadama One">Wellamadama One</MenuItem>
+                                <MenuItem value="Wellamadama Two">Wellamadama Two</MenuItem>
+                                <MenuItem value="Wellamadama Three">Wellamadama Three</MenuItem>
                             </Select>
                         </FormControl>
 
@@ -224,6 +230,7 @@ function AddStudent(props) {
                 </Grid>
             </form> 
         </ThemeProvider> 
+        </Paper>
     )
 }
 

@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     color:'red', 
   },
 
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -250,7 +254,7 @@ function HeaderBar(){
 
     return (
       <div>
-        <AppBar position="static" style={{backgroundColor:'#ffffff'}}>
+        <AppBar position="fixed" style={{backgroundColor:'#eeeac3'}} className={classes.appBar}>
           <Toolbar>
             <Grid container>
               <Grid item className={classes.sectionDesktop}>
@@ -280,22 +284,22 @@ function HeaderBar(){
                   </Typography>
                 </Link>
               </Grid>
-              <Grid item className={classes.sectionDesktop}>
+              {/* <Grid item className={classes.sectionDesktop}>
                 <Typography className={classes.Typography} >
-                  <Link to={"/Student"} className={classes.LinkDesktop}>    {/*-------------Change these Links------------ */}
+                  <Link to={"/Student"} className={classes.LinkDesktop}>    -------------Change these Links------------
                     Patients
                   </Link>
-                  <Link to={"/User"} className={classes.LinkDesktop}>    {/*-------------Change these Links------------ */}
+                  <Link to={"/User"} className={classes.LinkDesktop}>    -------------Change these Links------------
                     Staff Members
                   </Link>
-                  <Link to={"/Appointment"} className={classes.LinkDesktop}>     {/*-------------Change these Links------------ */}
+                  <Link to={"/Appointment"} className={classes.LinkDesktop}>     -------------Change these Links------------
                     Appointments
                   </Link>
-                  <Link to={"/Reports"} className={classes.LinkDesktop}>        {/*-------------Change these Links------------ */}
+                  <Link to={"/Reports"} className={classes.LinkDesktop}>        -------------Change these Links------------
                     Reports
                   </Link>
                 </Typography>
-              </Grid>
+              </Grid> */}
               <Grid item sm className={classes.sectionDesktop}></Grid>
               <Grid item xs className={classes.sectionMobile}></Grid>
               <Grid item className={classes.sectionDesktop}>

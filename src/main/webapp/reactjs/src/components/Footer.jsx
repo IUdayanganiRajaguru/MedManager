@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
     top: 'auto',
     bottom: 0,
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#eeeac3',
+    zIndex: theme.zIndex.drawer + 1,
   },
   typography: {
     // color: '#606264',
@@ -26,7 +27,7 @@ export default function BottomAppBar() {
   return (
     <React.Fragment>
       <CssBaseline />
-        <AppBar position="fixed"  className={classes.appBar}>
+        <AppBar position="fixed"  className={classes.appBar} elevation={3}>
           <Toolbar variant="dense">
             <Typography className={classes.typography}>
                 All Rights Reserved

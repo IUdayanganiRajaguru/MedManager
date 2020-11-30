@@ -11,9 +11,9 @@ import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
-        marginLeft: theme.spacing(8.5),
-        marginRight: theme.spacing(8.5),
-        marginTop: theme.spacing(3.5),
+        marginLeft: theme.spacing(35),
+        marginRight: theme.spacing(0),
+        marginTop: theme.spacing(5),
         padding: theme.spacing(5)
     }
 }))
@@ -24,10 +24,7 @@ function Student() {
 
     return (
         <Router>
-            <Paper className={classes.pageContent}>
-                <AddStudent/>
-            </Paper>
-            <br />
+            <AddStudent/>
             <ListStudents/>
             <br />
             <ViewStudent/>
