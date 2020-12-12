@@ -64,10 +64,10 @@ const headCells = [
     { id: 'address',  numeric: false, disablePadding: false, label: 'Address' },
     { id: 'contactNumber',  numeric: false, disablePadding: false, label: 'Contact Number' },
     { id: 'stayingPlace',  numeric: false, disablePadding: false, label: 'Staying Place' },
-    { id: 'height', numeric: true, disablePadding: false, label: 'Height' },
-    { id: 'weight',  numeric: true, disablePadding: false, label: 'Weight' },
-    { id: 'chronicDisease',  numeric: false, disablePadding: false, label: 'Chronic Disease' },
-    { id: 'allergies',  numeric: false, disablePadding: false, label: 'Allergies' },
+    // { id: 'height', numeric: true, disablePadding: false, label: 'Height' },
+    // { id: 'weight',  numeric: true, disablePadding: false, label: 'Weight' },
+    // { id: 'chronicDisease',  numeric: false, disablePadding: false, label: 'Chronic Disease' },
+    // { id: 'allergies',  numeric: false, disablePadding: false, label: 'Allergies' },
 ];
 
 function EnhancedTableHead(props) {
@@ -91,8 +91,9 @@ function EnhancedTableHead(props) {
                     <TableCell
                         key={headCell.id}
                         // align={headCell.numeric ? 'right' : 'left'}
-                        align='right'
-                        padding={headCell.disablePadding ? 'none' : 'default'}
+                        align='center'
+                        //padding={headCell.disablePadding ? 'none' : 'default'}
+                        padding='10px'
                         sortDirection={orderBy === headCell.id ? order : false}
                     >
                         <TableSortLabel
@@ -126,8 +127,8 @@ EnhancedTableHead.propTypes = {
 
 const useToolbarStyles = makeStyles((theme) => ({
     root: {
-        paddingLeft: theme.spacing(3),
-        paddingRight: theme.spacing(3),
+        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(5),
     },
     highlight:
         theme.palette.type === 'light'
@@ -187,7 +188,7 @@ EnhancedTableToolbar.propTypes = {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: '90px',
+        marginTop: '25px',
         // marginLeft: '280px',
         // marginRight: '0px',
         marginBottom: '50px',
@@ -200,19 +201,21 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 750,
     },
     visuallyHidden: {
-        border: 0,
+        border: 2,
         clip: 'rect(0 0 0 0)',
         height: 1,
-        margin: -1,
+        margin: 10,
         overflow: 'hidden',
-        padding: 0,
+        padding: 10,
         position: 'absolute',
         top: 20,
         width: 1,
     },
     tableCell: {
-        align: 'right',
+        align: 'center',
         padding: '100px',
+        marginLeft: '50px',
+        marginRight: '50px',
     },
 }));
 
@@ -245,16 +248,16 @@ function ListStudents() {
     },[records]);
 
 
-    useEffect(() => {
-       deleteStudent();
-    });
-
-    const deleteStudent = useCallback(() => {
-        StudentService.deleteStudent(records)
-            .then(data => {
-                setRecords(data.data);
-            }).catch(err => alert(err));
-    },[records]);
+    // useEffect(() => {
+    //    deleteStudent();
+    // });
+    //
+    // const deleteStudent = useCallback(() => {
+    //     StudentService.deleteStudent(records)
+    //         .then(data => {
+    //             setRecords(data.data);
+    //         }).catch(err => alert(err));
+    // },[records]);
 
     //--------------------------My Codes----------------------------------------
 
@@ -381,10 +384,10 @@ function ListStudents() {
                                             <TableCell align="right">{row.address}</TableCell>
                                             <TableCell align="right">{row.contactNumber}</TableCell>
                                             <TableCell align="right">{row.stayingPlace}</TableCell>
-                                            <TableCell align="right">{row.height}</TableCell>
+                                            {/* <TableCell align="right">{row.height}</TableCell>
                                             <TableCell align="right">{row.weight}</TableCell>
                                             <TableCell align="right">{row.chronicDisease}</TableCell>
-                                            <TableCell align="right">{row.allergies}</TableCell>
+                                            <TableCell align="right">{row.allergies}</TableCell> */}
                                         </TableRow>
                                     );
                                 })}

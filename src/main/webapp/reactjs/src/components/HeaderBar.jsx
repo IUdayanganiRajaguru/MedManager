@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import SideMenu from './SideMenu';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaptopMedical } from '@fortawesome/free-solid-svg-icons'
 
@@ -74,14 +76,14 @@ const useStyles = makeStyles((theme) => ({
 
   sectionDesktop: {
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'flex',
     },
   },
 
   sectionMobile: {
     display: 'flex',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
   },
@@ -91,6 +93,14 @@ const useStyles = makeStyles((theme) => ({
 
 function HeaderBar(){
   const classes = useStyles();
+
+  const [sideMenu, setSideMenu] = React.useState(false)
+
+  // const showSideMenu = (e) => {
+  //     setSideMenu(!sideMenu);
+  //
+  //     (sideMenu) ?
+  // }
 
   //These are created for mobile version-------start
 
@@ -254,7 +264,7 @@ function HeaderBar(){
 
     return (
       <div>
-        <AppBar position="fixed" style={{backgroundColor:'#eeeac3'}} className={classes.appBar}>
+        <AppBar position="fixed" style={{backgroundColor:'#ffffff'}} className={classes.appBar}>
           <Toolbar>
             <Grid container>
               <Grid item className={classes.sectionDesktop}>
@@ -266,17 +276,20 @@ function HeaderBar(){
                 </Link>
               </Grid>
               <Grid item className={classes.sectionMobile}>
-                <IconButton
-                  className={classes.iconButton}
-                  edge="start"
-                  aria-label="open drawer"
-                  aria-haspopup="true"
-                  color="#292b2c"
-                  aria-controls={mobileMenuId1}
-                  onClick={handleMobileMenu1Open}
-                >
-                  <MenuIcon />
-                </IconButton>
+                <Link>
+                  <IconButton
+                      className={classes.iconButton}
+                      edge="start"
+                      aria-label="open drawer"
+                      aria-haspopup="true"
+                      color="#292b2c"
+                      // aria-controls={mobileMenuId1}
+                      // onClick={handleMobileMenu1Open}
+                      onClick={showSideMenu}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Link>
                 <Link to={"/"} style={{textDecoration: 'none'}} >      {/*-------------Change these Links------------ */}
                   <Typography className={classes.Typography}>
                     <FontAwesomeIcon icon={faLaptopMedical} />

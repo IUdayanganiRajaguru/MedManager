@@ -7,11 +7,11 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    minWidth: '240px',
     flexGrow: 1,
     backgroundColor: '#ffffff',
     marginTop: '90px',
-    marginLeft: '10%',
-    marginRight: '10%',
+    width: '300px',
     //marginBottom: '500px',
   },
 

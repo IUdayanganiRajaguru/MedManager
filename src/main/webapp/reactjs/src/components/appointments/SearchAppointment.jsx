@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function ViewUser() {
+function SearchAppointment() {
     return (
         <div>
             
         </div>
     )
 }
+
+export default SearchAppointment;

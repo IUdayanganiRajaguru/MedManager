@@ -25,7 +25,8 @@ const theme = createMuiTheme({
 const initialFieldValues = {
     id: 0,
     name: '', 
-    role: '', 
+    role: '',
+    password: '',
     age: '',  
     gender: 'Male', 
     email: '', 
@@ -70,7 +71,7 @@ function AddUser(props) {
 
 
     return (
-        <Paper style={{marginTop: '90px'}}>
+        <Paper style={{marginTop: '10px'}}>
             
         <ThemeProvider theme={theme}>
             {/*<form onSubmit={e =>{*/}
@@ -89,6 +90,14 @@ function AddUser(props) {
                         name="name"
                         value={values.name}
                         onChange={handleInputChange}
+                        />
+                        <TextField
+                            variant="outlined"
+                            size="small"
+                            label="Password"
+                            name="password"
+                            value={values.password}
+                            onChange={handleInputChange}
                         />
                         <TextField
                         variant="outlined"
@@ -116,7 +125,7 @@ function AddUser(props) {
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        {/* Select Option for Role*/}
+                        {/* SelectSegment Option for Role*/}
                         <FormControl variant="outlined" size="small">
                             <InputLabel>Role</InputLabel>
                             <Select

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '90px',
     marginLeft: '10%',
     marginRight: '10%',
-    //marginBottom: '500px',
+    marginBottom: '25px',
   },
 
   search: {
@@ -51,15 +51,15 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '50ch',
       '&:focus': {
-        width: '20ch',
+        width: '50ch',
       },
     },
   },
 }));
 
-function Search() {
+function SearchUser() {
 
     const classes = useStyles();
 
@@ -70,16 +70,17 @@ function Search() {
                 <SearchIcon />
                 </div>
                 <InputBase
-                placeholder="Search…"
+                placeholder="Search User"
                 classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
+                width='100%'
                 />
             </div>
         </Paper>
     )
 }
 
-export default  Search;
+export default  SearchUser;

@@ -181,7 +181,7 @@ EnhancedTableToolbar.propTypes = {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: '90px',
+        marginTop: '25px',
         // marginLeft: '280px',
         // marginRight: '0px',
         marginBottom: '50px',
@@ -239,16 +239,16 @@ function ListUser() {
     },[records]);
 
 
-    useEffect(() => {
-       deleteUser();
-    });
-
-    const deleteUser = useCallback(() => {
-        UserService.deleteUser(records)
-            .then(data => {
-                setRecords(data.data);
-            }).catch(err => alert(err));
-    },[records]);
+    // useEffect(() => {
+    //     deleteUser();
+    // });
+    //
+    // const deleteUser = useCallback(() => {
+    //     UserService.deleteUser(records)
+    //         .then(data => {
+    //             setRecords(data.data);
+    //         }).catch(err => alert(err));
+    // },[records]);
 
     //--------------------------My Codes----------------------------------------
 

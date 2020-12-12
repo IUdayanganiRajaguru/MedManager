@@ -31,10 +31,26 @@ const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '90px',
         width : '300px',
+        minWidth : '240px',
         marginLeft : '40px',
     },
+
     nested: {
         paddingLeft: theme.spacing(4),
+    },
+
+    link: {
+        color: '#606264',
+        "&:hover": {
+            color: '#8A8D91',
+          },
+          '&:focus': {
+            color: 'red',
+          },
+          '&:active': {
+              color: 'black',
+          },
+          fontWeight: 'italic',
     },
 }));
 
@@ -75,7 +91,7 @@ function SideMenu() {
                 component="nav"
                 aria-labelledby="nested-list-subheader"
             >
-                <Link to={"/Dashboard"}  style={{textDecoration: "none", color:"inherit"}}>
+                <Link to={"/Dashboard"}  style={{textDecoration: "none"}} className={classes.link}>
                     <ListItem button>
                     <ListItemIcon>
                         <DashboardIcon />
@@ -84,7 +100,7 @@ function SideMenu() {
                     </ListItem>
                 </Link>
 
-                <Link to={"/Student"} style={{textDecoration: "none", color:"inherit"}}> 
+                <Link to={"/Student"} style={{textDecoration: "none"}} className={classes.link}>
                     <ListItem button onClick={handleClickPatient}>
                     <ListItemIcon>
                         <PeopleAltIcon />
@@ -93,7 +109,7 @@ function SideMenu() {
                     {openPatient ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                 </Link>
-                <Collapse in={openPatient} timeout="auto" unmountOnExit>
+                {/* <Collapse in={openPatient} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <Link to={"/AddStudent"} style={{textDecoration: "none", color:"inherit"}}>
                         <ListItem button className={classes.nested}>
@@ -112,9 +128,9 @@ function SideMenu() {
                         </ListItem>
                     </Link>
                 </List>
-                </Collapse>
+                </Collapse> */}
 
-                <Link to={"/User"} style={{textDecoration: "none", color:"inherit"}}>
+                <Link to={"/User"} style={{textDecoration: "none"}}  className={classes.link}>
                     <ListItem button onClick={handleClickStaff}>
                     <ListItemIcon>
                         <RecentActorsIcon />
@@ -123,7 +139,7 @@ function SideMenu() {
                     {openStaffM ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                 </Link>
-                <Collapse in={openStaffM} timeout="auto" unmountOnExit>
+                {/* <Collapse in={openStaffM} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <Link to={"/AddUSer"} style={{textDecoration: "none", color:"inherit"}}>
                         <ListItem button className={classes.nested}>
@@ -142,17 +158,18 @@ function SideMenu() {
                         </ListItem>
                     </Link>
                 </List>
-                </Collapse>
+                </Collapse> */}
 
-
-                <ListItem button onClick={handleClickAppointment}>
-                <ListItemIcon>
-                    <EventNoteIcon />
-                </ListItemIcon>
-                <ListItemText primary="Appointments" />
-                {openAppointment ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse in={openAppointment} timeout="auto" unmountOnExit>
+                <Link  to={"/Appointment"} style={{textDecoration: "none"}}  className={classes.link}>
+                    <ListItem button onClick={handleClickAppointment}>
+                    <ListItemIcon>
+                        <EventNoteIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Appointments" />
+                    {openAppointment ? <ExpandLess /> : <ExpandMore />}
+                    </ListItem>
+                </Link>
+                {/* <Collapse in={openAppointment} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItem button className={classes.nested}>
                     <ListItemIcon>
@@ -167,15 +184,17 @@ function SideMenu() {
                     <ListItemText primary="View Appointments" />
                     </ListItem>
                 </List>
-                </Collapse>
+                </Collapse> */}
 
-                <ListItem button onClick={handleClickReport}>
-                <ListItemIcon>
-                    <DescriptionIcon />
-                </ListItemIcon>
-                <ListItemText primary="Reports" />
-                {openReport ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
+                <Link  to={"/User"} style={{textDecoration: "none"}}  className={classes.link}>
+                    <ListItem button onClick={handleClickReport}>
+                    <ListItemIcon>
+                        <DescriptionIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Reports" />
+                    {openReport ? <ExpandLess /> : <ExpandMore />}
+                    </ListItem>
+                </Link>
                 <Collapse in={openReport} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItem button className={classes.nested}>
@@ -207,7 +226,7 @@ function SideMenu() {
 
                 <Divider />
 
-                <ListItem button onClick={handleClickSetting}>
+                <ListItem button onClick={handleClickSetting}  className={classes.link}>
                 <ListItemIcon>
                     <SettingsIcon />
                 </ListItemIcon>
@@ -216,7 +235,7 @@ function SideMenu() {
                 </ListItem>
                 <Collapse in={openSetting} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    <ListItem button className={classes.nested}>
+                    <ListItem button className={classes.nested} >
                     <ListItemIcon>
                         <SettingsIcon />
                     </ListItemIcon>
@@ -231,14 +250,14 @@ function SideMenu() {
                 </List>
                 </Collapse>
 
-                <ListItem button>
+                <ListItem button  className={classes.link}>
                 <ListItemIcon>
                     <AccountCircleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Profile" />
                 </ListItem>
 
-                <ListItem button>
+                <ListItem button  className={classes.link}>
                 <ListItemIcon>
                     <ExitToAppIcon />
                 </ListItemIcon>

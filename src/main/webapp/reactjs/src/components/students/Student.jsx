@@ -2,34 +2,47 @@ import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 
 import ListStudents from './ListStudents';
-import AddStudent from './AddStudent';
+//import AddStudent from './AddStudent';
 import ViewStudent from './ViewStudent';
+import SearchStudent from './SearchStudent';
+import SelectSegment from './SelectSegment';
+import AddStudentDialog from './AddStudentDialog'
 
-import { makeStyles } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
+
+import { Grid } from '@material-ui/core';
 
 
-const useStyles = makeStyles(theme => ({
-    pageContent: {
-        marginLeft: theme.spacing(35),
-        marginRight: theme.spacing(0),
-        marginTop: theme.spacing(5),
-        padding: theme.spacing(5)
-    }
-}))
 
 function Student() {
 
-    const classes = useStyles();
-
     return (
         <Router>
-            <AddStudent/>
-            <ListStudents/>
-            <br />
-            <ViewStudent/>
-            <br /><br /><br />
-        </Router>
+        <Grid container direction="row" justify="flex-start" alignItems="flex-start">
+            <Grid item xs={8} direction="column" justify="flex-start" alignItems="center" position="fixed">
+                <Grid item>
+                    <SearchStudent />
+                </Grid>
+                <Grid item>
+                    <ListStudents/>
+                </Grid>
+                {/* <Grid item>
+                    <AddStudent/>
+                </Grid> */}
+                <Grid item>
+                    <ViewStudent/>
+                </Grid>
+            </Grid>
+            <Grid container item xs={4} direction="column" justify="flex-start" alignItems="center" position="fixed">
+                <Grid item>
+                    <AddStudentDialog />
+                </Grid>
+                <Grid item>
+                    <SelectSegment />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Router>
+        
     );
 }
 

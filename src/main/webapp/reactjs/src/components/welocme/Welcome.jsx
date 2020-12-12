@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Ruhuna from '../images/Ruhuna.jpg';
+import Ruhuna from './images/Ruhuna.jpg';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
