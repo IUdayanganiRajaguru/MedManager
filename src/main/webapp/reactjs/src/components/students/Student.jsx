@@ -7,7 +7,7 @@ import ViewStudent from './ViewStudent';
 import SearchStudent from './SearchStudent';
 import SelectSegment from './SelectSegment';
 import AddStudentDialog from './AddStudentDialog'
-
+import AddStudentList from './AddStudentList';
 
 import { Grid } from '@material-ui/core';
 
@@ -37,6 +37,9 @@ function Student() {
                     <AddStudentDialog />
                 </Grid>
                 <Grid item>
+                    <AddStudentList />
+                </Grid>
+                <Grid item>
                     <SelectSegment />
                 </Grid>
             </Grid>
@@ -47,3 +50,5 @@ function Student() {
 }
 
 export default Student;
+
+

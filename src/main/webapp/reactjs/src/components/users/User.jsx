@@ -6,7 +6,8 @@ import { Grid } from '@material-ui/core';
 import AddUserDialog from './AddUserDialog.jsx';
 import ListUser from './ListUser';
 import SearchUser from './SearchUser';
-import SelectSegmentUser from './SelectSegmentUser';
+// import SelectSegmentUser from './SelectSegmentUser';
+import Status from '../welocme/Status'
 import ViewUser from './ViewUser';
 
 function User() {
@@ -32,7 +33,7 @@ function User() {
                     <AddUserDialog />
                 </Grid>
                 <Grid item>
-                    <SelectSegmentUser />
+                    <Status />
                 </Grid>
             </Grid>
         </Grid>

@@ -13,7 +13,7 @@ import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
-    //KeyboardTimePicker,
+    KeyboardTimePicker,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 
@@ -55,11 +55,13 @@ const theme = createMuiTheme({
 
 const initialFieldValues = {
     id: 0,
-    date: '', 
+    date: '',
+    studentID: '',
     symptoms: '',
-    comment: '',
+    comments: '',
+    consultDate: '',
     consultTime: '',  
-    currentStatus: ''
+    currentStatus: 'Accepted',
 }
 
 function AddAppointmentDialog() {
@@ -161,84 +163,74 @@ function AddAppointmentDialog() {
                                         />
                                     </Grid>
                                 </MuiPickersUtilsProvider>
+
                                 <TextField
                                     variant="outlined"
                                     size="small"
-                                    label="Password"
-                                    name="password"
-                                    value={values.password}
+                                    label="Symptoms"
+                                    name="symptoms"
+                                    value={values.symptoms}
                                     onChange={handleInputChange}
                                 />
-                                <TextField
-                                    variant="outlined"
-                                    size="small"
-                                    label="Age"
-                                    name="age"
-                                    value={values.age}
-                                    onChange={handleInputChange}
-                                />
-                                <TextField
-                                    size="small"
-                                    variant="outlined"
-                                    label="Email"
-                                    name="email"
-                                    value={values.email}
-                                    onChange={handleInputChange}
-                                />
-                                <TextField
-                                    variant="outlined"
-                                    size="small"
-                                    label="Qualifications"
-                                    name="qualifications"
-                                    value={values.qualifications}
-                                    onChange={handleInputChange}
-                                />
-                                
+
+                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                    <Grid container >
+                                        <KeyboardDatePicker
+                                            variant="inline"
+                                            inputVariant="outlined"
+                                            size="small"
+                                            marginTop="0px"
+                                            marginLeft="0px"
+                                            id="date-picker-dialog"
+                                            label="Consult Date"
+                                            format="MM/dd/yyyy"
+                                            value={selectedDate}
+                                            onChange={handleDateChange}
+                                            KeyboardButtonProps={{
+                                                'aria-label': 'change date',
+                                            }}
+                                        />
+                                    </Grid>
+                                </MuiPickersUtilsProvider>
                             </Grid>
                             <Grid item xs={6}>
-                                {/* SelectSegment Option for Role*/}
-                                <FormControl variant="outlined" size="small">
-                                    <InputLabel>Role</InputLabel>
-                                    <Select
-                                        label="Role"
-                                        name="role"
-                                        value={values.role}
-                                        onChange={handleInputChange}
-                                    >
-                                        <MenuItem value="Administrator">Administrator</MenuItem>
-                                        <MenuItem value="Doctor">Doctor</MenuItem>
-                                        <MenuItem value="Nurse">Nurse</MenuItem>
-                                        <MenuItem value="Pharmacist">Pharmacist</MenuItem>
-                                        <MenuItem value="PHI">PHI</MenuItem>
-                                        <MenuItem value="Lab Assistent">Lab Assistent</MenuItem>
-                                        <MenuItem value="Receptionist">Receptionist</MenuItem>
-                                        <MenuItem value="Councilor">Councilor</MenuItem>
-                                    </Select>
-                                </FormControl>
-
-                                {/* Radio Button */}
-                                <FormControl variant="outlined" size="small">
-                                    <FormLabel>Gender</FormLabel>
-                                    <RadioGroup row={true}
-                                            name="gender"
-                                            value={values.gender}
-                                            onChange={handleInputChange}
-                                            color="primary"
-                                    >
-                                        <FormControlLabel value="Male" control={<Radio color="primary"/>} label="Male" />
-                                        <FormControlLabel value="Female" control={<Radio color="primary"/>} label="Female" />
-                                        <FormControlLabel value="Other" control={<Radio color="primary"/>} label="Other" />
-                                    </RadioGroup>
-                                </FormControl>
+                                <TextField
+                                    variant="outlined"
+                                    size="small"
+                                    label="Student ID"
+                                    name="studentID"
+                                    value={values.studentID}
+                                    onChange={handleInputChange}
+                                />
 
                                 <TextField
                                     variant="outlined"
                                     size="small"
-                                    label="Contact Number"
-                                    name="contactNumber"
-                                    value={values.contactNumber}
+                                    label="Comments"
+                                    name="comments"
+                                    value={values.comments}
                                     onChange={handleInputChange}
                                 />
+
+                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                    <Grid container >
+                                        <KeyboardTimePicker
+                                            variant="inline"
+                                            inputVariant="outlined"
+                                            size="small"
+                                            marginTop="0px"
+                                            marginLeft="0px"
+                                            id="time-picker"
+                                            label="Consult Time"
+                                            value={selectedDate}
+                                            onChange={handleDateChange}
+                                            KeyboardButtonProps={{
+                                                'aria-label': 'change time',
+                                            }}
+                                        />
+                                    </Grid>
+                                </MuiPickersUtilsProvider>
+
                             </Grid>
                         </Grid>
                     </form>

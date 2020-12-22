@@ -9,6 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
@@ -23,16 +24,25 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import {Typography} from "@material-ui/core";
+
+import { red } from '@material-ui/core/colors';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '90px',
         width : '300px',
-        minWidth : '240px',
+        // minWidth : '240px',
         marginLeft : '40px',
+        // display: 'flex',
+        '& > *': {
+            margin: theme.spacing(1),
+        },
     },
 
     nested: {
@@ -45,13 +55,21 @@ const useStyles = makeStyles((theme) => ({
             color: '#8A8D91',
           },
           '&:focus': {
-            color: 'red',
+            //color: '#8A8D91',
+            backgroundColor: '#8a8d9175',
           },
           '&:active': {
               color: 'black',
           },
           fontWeight: 'italic',
     },
+    avatar: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+        color: '#fff',
+        backgroundColor: red[500],
+    },
+
 }));
 
 function SideMenu() {
@@ -87,12 +105,27 @@ function SideMenu() {
         <Card className={classes.root}>
             <CssBaseline/>
             <div>
+                {/*<AccountCircleIcon fontSize="large" />*/}
+                <div alignItems="center" style={{padding:"30px"}} >
+                    {/*<CardMedia*/}
+                    {/*    component="img"*/}
+                    {/*    alt="User"*/}
+                    {/*    height="50"*/}
+                    {/*    image={Avatar}*/}
+                    {/*    title="User"*/}
+                    {/*/>*/}
+                    <Avatar alt="Administrator" src="./avatar.png" className={classes.avatar} alignItems="center" />
+                    <Typography textAlign="center">
+                        ADMINISTRATOR
+                    </Typography>
+                </div>
+                <Divider />
             <List
                 component="nav"
                 aria-labelledby="nested-list-subheader"
             >
-                <Link to={"/Dashboard"}  style={{textDecoration: "none"}} className={classes.link}>
-                    <ListItem button>
+                <Link to={"/Dashboard"}  style={{textDecoration: "none"}} >
+                    <ListItem button className={classes.link}>
                     <ListItemIcon>
                         <DashboardIcon />
                     </ListItemIcon>
@@ -100,13 +133,13 @@ function SideMenu() {
                     </ListItem>
                 </Link>
 
-                <Link to={"/Student"} style={{textDecoration: "none"}} className={classes.link}>
-                    <ListItem button onClick={handleClickPatient}>
+                <Link to={"/Student"} style={{textDecoration: "none"}} >
+                    <ListItem button className={classes.link} onClick={handleClickPatient}>
                     <ListItemIcon>
                         <PeopleAltIcon />
                     </ListItemIcon>
                     <ListItemText primary="Patients" />
-                    {openPatient ? <ExpandLess /> : <ExpandMore />}
+                    {/*{openPatient ? <ExpandLess /> : <ExpandMore />}*/}
                     </ListItem>
                 </Link>
                 {/* <Collapse in={openPatient} timeout="auto" unmountOnExit>
@@ -130,13 +163,13 @@ function SideMenu() {
                 </List>
                 </Collapse> */}
 
-                <Link to={"/User"} style={{textDecoration: "none"}}  className={classes.link}>
-                    <ListItem button onClick={handleClickStaff}>
+                <Link to={"/User"} style={{textDecoration: "none"}}>
+                    <ListItem button className={classes.link} onClick={handleClickStaff}>
                     <ListItemIcon>
                         <RecentActorsIcon />
                     </ListItemIcon>
                     <ListItemText primary="Staff Members" />
-                    {openStaffM ? <ExpandLess /> : <ExpandMore />}
+                    {/*{openStaffM ? <ExpandLess /> : <ExpandMore />}*/}
                     </ListItem>
                 </Link>
                 {/* <Collapse in={openStaffM} timeout="auto" unmountOnExit>
@@ -160,13 +193,13 @@ function SideMenu() {
                 </List>
                 </Collapse> */}
 
-                <Link  to={"/Appointment"} style={{textDecoration: "none"}}  className={classes.link}>
-                    <ListItem button onClick={handleClickAppointment}>
+                <Link  to={"/Appointment"} style={{textDecoration: "none"}}>
+                    <ListItem button className={classes.link} onClick={handleClickAppointment}>
                     <ListItemIcon>
                         <EventNoteIcon />
                     </ListItemIcon>
                     <ListItemText primary="Appointments" />
-                    {openAppointment ? <ExpandLess /> : <ExpandMore />}
+                    {/*{openAppointment ? <ExpandLess /> : <ExpandMore />}*/}
                     </ListItem>
                 </Link>
                 {/* <Collapse in={openAppointment} timeout="auto" unmountOnExit>
@@ -186,8 +219,8 @@ function SideMenu() {
                 </List>
                 </Collapse> */}
 
-                <Link  to={"/User"} style={{textDecoration: "none"}}  className={classes.link}>
-                    <ListItem button onClick={handleClickReport}>
+                <Link  to={"/User"} style={{textDecoration: "none"}} >
+                    <ListItem button className={classes.link} onClick={handleClickReport}>
                     <ListItemIcon>
                         <DescriptionIcon />
                     </ListItemIcon>
@@ -231,24 +264,24 @@ function SideMenu() {
                     <SettingsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Settings" />
-                {openSetting ? <ExpandLess /> : <ExpandMore />}
+                {/*{openSetting ? <ExpandLess /> : <ExpandMore />}*/}
                 </ListItem>
-                <Collapse in={openSetting} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    <ListItem button className={classes.nested} >
-                    <ListItemIcon>
-                        <SettingsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="setting 1" />
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                    <ListItemIcon>
-                        <SettingsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="setting 2" />
-                    </ListItem>
-                </List>
-                </Collapse>
+                {/*<Collapse in={openSetting} timeout="auto" unmountOnExit>*/}
+                {/*<List component="div" disablePadding>*/}
+                {/*    <ListItem button className={classes.nested} >*/}
+                {/*    <ListItemIcon>*/}
+                {/*        <SettingsIcon />*/}
+                {/*    </ListItemIcon>*/}
+                {/*    <ListItemText primary="setting 1" />*/}
+                {/*    </ListItem>*/}
+                {/*    <ListItem button className={classes.nested}>*/}
+                {/*    <ListItemIcon>*/}
+                {/*        <SettingsIcon />*/}
+                {/*    </ListItemIcon>*/}
+                {/*    <ListItemText primary="setting 2" />*/}
+                {/*    </ListItem>*/}
+                {/*</List>*/}
+                {/*</Collapse>*/}
 
                 <ListItem button  className={classes.link}>
                 <ListItemIcon>

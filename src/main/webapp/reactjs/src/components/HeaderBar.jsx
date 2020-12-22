@@ -151,20 +151,20 @@ function HeaderBar(){
     >
       <MenuItem>
         <Link to={"/Student"} className={classes.LinkMobile}>     {/*-------------Change these Links(eg-: /Student)------------ */}
-          <p style={{color: '#606264', fontWeight: 'bold'}}>Patients</p>
+          <p style={{color: '#606264', fontWeight: 'bold'}} onMouseUp={handleMobileMenu1Close}>Patients</p>
         </Link>
       </MenuItem>
       <MenuItem>
         <Link to={"/User"} className={classes.LinkMobile}>            {/*-------------Change these Links------------ */}
-          <p style={{color: '#606264', fontWeight: 'bold'}}>Staff Members</p>
+          <p style={{color: '#606264', fontWeight: 'bold'}} onMouseUp={handleMobileMenu1Close}>Staff Members</p>
         </Link>
       </MenuItem><MenuItem>
         <Link to={"/Appointment"} className={classes.LinkMobile}>       {/*-------------Change these Links------------ */}
-          <p style={{color: '#606264', fontWeight: 'bold'}}>Appointments</p>
+          <p style={{color: '#606264', fontWeight: 'bold'}} onMouseUp={handleMobileMenu1Close}>Appointments</p>
         </Link>
       </MenuItem><MenuItem>
         <Link to={"/Reports"} className={classes.LinkMobile}>       {/*-------------Change these Links------------ */}
-          <p style={{color: '#606264', fontWeight: 'bold'}}>Reports</p>
+          <p style={{color: '#606264', fontWeight: 'bold'}} onMouseUp={handleMobileMenu1Close}>Reports</p>
         </Link>
       </MenuItem>
     </Menu>
@@ -283,9 +283,9 @@ function HeaderBar(){
                       aria-label="open drawer"
                       aria-haspopup="true"
                       color="#292b2c"
-                      // aria-controls={mobileMenuId1}
-                      // onClick={handleMobileMenu1Open}
-                      onClick={showSideMenu}
+                      aria-controls={mobileMenuId1}
+                      onClick={handleMobileMenu1Open}
+                      // onClick={showSideMenu}
                   >
                     <MenuIcon />
                   </IconButton>
@@ -297,22 +297,7 @@ function HeaderBar(){
                   </Typography>
                 </Link>
               </Grid>
-              {/* <Grid item className={classes.sectionDesktop}>
-                <Typography className={classes.Typography} >
-                  <Link to={"/Student"} className={classes.LinkDesktop}>    -------------Change these Links------------
-                    Patients
-                  </Link>
-                  <Link to={"/User"} className={classes.LinkDesktop}>    -------------Change these Links------------
-                    Staff Members
-                  </Link>
-                  <Link to={"/Appointment"} className={classes.LinkDesktop}>     -------------Change these Links------------
-                    Appointments
-                  </Link>
-                  <Link to={"/Reports"} className={classes.LinkDesktop}>        -------------Change these Links------------
-                    Reports
-                  </Link>
-                </Typography>
-              </Grid> */}
+        
               <Grid item sm className={classes.sectionDesktop}></Grid>
               <Grid item xs className={classes.sectionMobile}></Grid>
               <Grid item className={classes.sectionDesktop}>

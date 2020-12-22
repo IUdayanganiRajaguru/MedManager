@@ -15,7 +15,7 @@ toast.configure()
 const useStyles = makeStyles((theme) => ({
     root: {
         //maxWidth: 305,
-        marginTop: '20px',
+        marginTop: '25px',
         width: '300px',
         padding: '10px',
     },

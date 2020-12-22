@@ -8,6 +8,7 @@ import ListAppointments from './ListAppointments';
 import ViewAppointment from './ViewAppointment';
 import AddAppointmentDialog from './AddAppointmentDialog';
 import AppointmentStatus from './AppointmentStatus';
+import AddAppointmentList from './AddAppointmentList';
 
 function Appointment() {
     return (
@@ -31,6 +32,9 @@ function Appointment() {
                     <Grid item>
                         <AddAppointmentDialog />
                     </Grid>
+                    {/*<Grid item>*/}
+                    {/*    <AddAppointmentList />*/}
+                    {/*</Grid>*/}
                     <Grid item>
                         <AppointmentStatus />
                     </Grid>

@@ -108,8 +108,8 @@ function AddUserDialog() {
 
     return (  
         <div>
-            <Card className={classes.root}>
                 <Button 
+                    style={{marginTop: '90px'}}
                     variant="outlined" 
                     color="primary"
                     className={classes.button}
@@ -118,8 +118,7 @@ function AddUserDialog() {
                 >
                     Add New User
                 </Button>
-            </Card>
-    
+
             <Dialog open={open} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">New User</DialogTitle>
                 <DialogContent>
