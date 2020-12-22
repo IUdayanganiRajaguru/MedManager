@@ -50,7 +50,8 @@ public class AppointmentController {
 
         appointment.setDate(appointmentDetails.getDate());
         appointment.setSymptoms(appointmentDetails.getSymptoms());
-        appointment.setComment(appointmentDetails.getComment());
+        appointment.setComments(appointmentDetails.getComments());
+        appointment.setConsultDate(appointmentDetails.getConsultDate());
         appointment.setConsultTime(appointmentDetails.getConsultTime());
         appointment.setCurrentStatus(appointmentDetails.getCurrentStatus());
 

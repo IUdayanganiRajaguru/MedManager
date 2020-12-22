@@ -19,7 +19,10 @@ public class Appointment {
     private  String symptoms;
 
     @Column(nullable = true)
-    private String comment;
+    private String comments;
+
+    @Column(nullable = false)
+    private Date consultDate;
 
     @Column(nullable = false)
     private Time consultTime;
@@ -27,15 +30,21 @@ public class Appointment {
     @Column(nullable = false)
     private Boolean currentStatus;
 
+    @JoinColumn(name = "student_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    private Student student;
+
     public Appointment() {
     }
 
-    public Appointment(Date date, String symptoms, String comment, Time consultTime, Boolean currentStatus) {
+    public Appointment(Date date, String symptoms, String comments, Date consultDate, Time consultTime, Boolean currentStatus,Student student) {
         this.date = date;
         this.symptoms = symptoms;
-        this.comment = comment;
+        this.comments = comments;
+        this.consultDate = consultDate;
         this.consultTime = consultTime;
         this.currentStatus = currentStatus;
+        this.student = student;
     }
 
     public Integer getId() {
@@ -62,12 +71,20 @@ public class Appointment {
         this.symptoms = symptoms;
     }
 
-    public String getComment() {
-        return comment;
+    public String getComments() {
+        return comments;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public Date getConsultDate() {
+        return consultDate;
+    }
+
+    public void setConsultDate(Date consultDate) {
+        this.consultDate = consultDate;
     }
 
     public Time getConsultTime() {
@@ -84,5 +101,13 @@ public class Appointment {
 
     public void setCurrentStatus(Boolean currentStatus) {
         this.currentStatus = currentStatus;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }
