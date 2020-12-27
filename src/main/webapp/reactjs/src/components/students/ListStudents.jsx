@@ -145,6 +145,8 @@ const useToolbarStyles = makeStyles((theme) => ({
     },
 }));
 
+
+
 const EnhancedTableToolbar = (props) => {
     const classes = useToolbarStyles();
     const { numSelected } = props;
@@ -167,7 +169,9 @@ const EnhancedTableToolbar = (props) => {
 
             {numSelected > 0 ? (
                 <Tooltip title="Delete">
-                    <IconButton aria-label="delete">
+                    <IconButton
+                        aria-label="delete"
+                    >
                         <DeleteIcon />
                     </IconButton>
                 </Tooltip>
@@ -248,12 +252,22 @@ function ListStudents() {
     },[records]);
 
 
+    // const deleteStudent(id) {
+    //     StudentService.deleteStudent(id).then(response => {
+    //         if(response.data != null){
+    //             alert("Patient Deleted Successfully");
+    //             setRecords({
+    //                 student: records.student.filter(row => row.id !== id)
+    //             });
+    //         }
+    //     });
+    // }
     // useEffect(() => {
     //    deleteStudent();
     // });
     //
     // const deleteStudent = useCallback(() => {
-    //     StudentService.deleteStudent(records)
+    //     StudentService.deleteStudent(records.id)
     //         .then(data => {
     //             setRecords(data.data);
     //         }).catch(err => alert(err));
@@ -275,8 +289,6 @@ function ListStudents() {
    //
    //  },[]
    // );
-     
-
 
 
     const handleRequestSort = (event, property) => {

@@ -68,10 +68,20 @@ export default function AddStudentList() {
                 });
             }
         });
+
+        // return promise;
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = (file) => {
         handleClose();
+        // readExcel(file).then((d) => {
+        //     console.log(d);
+        //     for(let i=0; i<d.length;i++) {
+        //         StudentService.createStudent(d[i]).then(res => {
+        //             setValues(res.data);
+        //         });
+        //     }
+        // });
         alert('Patient added successfully!!!');
         window.location.reload();
     }

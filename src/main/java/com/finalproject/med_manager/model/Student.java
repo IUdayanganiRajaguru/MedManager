@@ -49,10 +49,12 @@ public class Student {
     @Column(nullable = true)
     private  String allergies;
 
+
+
     public Student() {
     }
 
-    public Student(String firstName, String lastName, Integer age, String faculty, String gender, String email, String address, String contactNumber, String stayingPlace, Integer height, Integer weight, String chronicDisease, String allergies) {
+    public Student(String firstName, String lastName, Integer age, String faculty, String gender, String email, String address, String contactNumber, String stayingPlace, Integer height, Integer weight, String chronicDisease, String allergies ) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -180,4 +182,5 @@ public class Student {
     public void setAllergies(String allergies) {
         this.allergies = allergies;
     }
+
 }

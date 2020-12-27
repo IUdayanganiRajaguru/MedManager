@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { CssBaseline, Grid } from '@material-ui/core';
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme"
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
+import {makeStyles} from "@material-ui/core/styles";
 
 import HeaderBar from "./components/HeaderBar";
 import Footer from './components/Footer';
@@ -23,8 +25,10 @@ import ListStudents from './components/students/ListStudents';
 import AddUser from './components/users/AddUser';
 import ListUser from './components/users/ListUser';
 import WelcomePage from './components/welocme/WelcomePage';
-import ThemeProvider from "@material-ui/styles/ThemeProvider";
-import {makeStyles} from "@material-ui/core/styles";
+import Charts from './components/dashboard/Charts';
+import receptionistMain from './components/receptionist/receptionistMain';
+
+
 
 
 const theme = createMuiTheme({
@@ -79,6 +83,7 @@ function MainPage() {
                             <Grid direction="column" justify="space-between" alignItems="center" position="fixed">
                                 <Switch>
                                     <Route path="/" exact component={WelcomePage} />
+                                    <Route path="/Dashboard" exact component={Charts}/>
                                     <Route path="/Student" exact component={Student} />
                                     <Route path="/AddStudent" exact component={AddStudent} />
                                     <Route path="/ListStudents" exact component={ListStudents} />
@@ -89,7 +94,7 @@ function MainPage() {
                                     <Route path="/Reports" exact component={Reports} />
                                     <Route path="/Notifications" exact component={Notifications} />
                                     <Route path="/Emails" exact component={Emails} />
-                                    <Route path="/Profile" exact component={Profile} />
+                                    <Route path="/Profile" exact component={receptionistMain} />
                                 </Switch>
                             </Grid>
                         </Grid>

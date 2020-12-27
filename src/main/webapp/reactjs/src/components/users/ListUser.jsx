@@ -229,7 +229,7 @@ function ListUser() {
 
     useEffect(() => {
         getUser();
-    });
+    },[]);
 
     const getUser= useCallback(() => {
             UserService.getUsers(records)
